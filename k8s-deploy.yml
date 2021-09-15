@@ -1,0 +1,10 @@
+- hosts: all
+#  become: yes
+  become_user: ec2-user
+#  gather_facts: yes
+
+  tasks:
+     - name: Execute a command using the shell module
+       become_user: ec2-user
+       shell: kubectl set image deployment/front-end httpd=d7vk18/kubernetes:{{ tag }}
+
